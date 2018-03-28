@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    window.username = '守候';
+    function fn() {
+        alert(this.username);
+    }
+    fn();
+    var {hostname:domain, pathname:path} = location;
+    alert(hostname);
+    alert(pathname);
+</script>
+</body>
+</html>
