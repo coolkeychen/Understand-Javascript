@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arrowFunction</title>
+</head>
+<body>
+<script>
+    /*
+    * 箭头函数里面没有自己的this 箭头函数的this是指向外层的对象。所以你obj.getAge里面的this.birth就是指向obj外的window的birth
+    */
+    var birth = 1995;
+    var obj2 = {
+        birth: 1990,
+        getAge : () => {
+        var b = this.birth;
+    return new Date().getFullYear() - this.birth;
+    }
+    };
+
+
+    console.log(obj2.getAge());
+</script>
+</body>
+</html>
