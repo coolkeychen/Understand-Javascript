@@ -10,18 +10,17 @@
  */
 
 const getType = function (obj) {
-    var toString = Object.prototype.toString;
-    console.log(toString.call(obj));
-    var map = {
-        '[Object Boolean]': 'boolean',
-        '[Object Number]': 'number',
-        '[Object String]': 'string',
-        '[Object Function]': 'function',
-        '[Object Array]': 'array',
-        '[Object Date]': 'date',
-        '[Object RegExp]': 'regExp',
-        '[Object Undefined]': 'undefined',
-        '[Object Null]': 'null',
+    const toString = Object.prototype.toString;
+    let map = {
+        '[object Boolean]': 'boolean',
+        '[object Number]': 'number',
+        '[object String]': 'string',
+        '[object Function]': 'function',
+        '[object Array]': 'array',
+        '[object Date]': 'date',
+        '[object RegExp]': 'regExp',
+        '[object Undefined]': 'undefined',
+        '[object Null]': 'null',
         '[object Object]': 'object',
     };
     /*if (obj instanceof Element) {
@@ -32,16 +31,48 @@ const getType = function (obj) {
 }
 
 const deepCopy = function (source) {
-    
+    const type = getType(source);
+    let obj;
+
+    if (type === 'object') {
+        obj = {}
+        for (let key in source) {
+            obj[key] = deepCopy(source[key]);
+        }
+    } else if (type === 'array'){
+        obj =[];
+        for (let i=0; i< source.length; i++) {
+            obj.push(deepCopy(source[i]));
+        }
+    } else {
+       obj = source;
+    }
+
+    return obj;
 }
 
 let a = {
     hello: '你好',
-    arr: [1,2,3,4]
+    arr: [1,2,3,4],
+    obj: {
+        b: '111',
+        c: 'aaa',
+        d: 'ddd'
+    }
     /*sayHello:function () {
         console.log(hello);
     }*/
 }
 
-console.log(getType(a));
-console.log(Object.prototype.toString);
+let c = [1,2,3,4];
+
+
+
+let b = deepCopy(a);
+console.log(a);
+console.log(b);
+
+
+
+
+
