@@ -1,9 +1,9 @@
 /*
  * @Description: myApply
- * @Author: 陈春凯
+ * @Author: cat
  * @Date: 2021-08-19 16:50:38
- * @LastEditTime: 2021-09-02 09:19:14
- * @LastEditor: 陈春凯
+ * @LastEditTime: 2021-10-09 09:44:41
+ * @LastEditor: cat
  */
 
 Function.prototype.myApply = function(context) {

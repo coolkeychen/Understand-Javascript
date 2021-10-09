@@ -1,9 +1,9 @@
 /*
  * @Description: myCall
- * @Author: 陈春凯
+ * @Author: cat
  * @Date: 2021-08-19 16:38:37
- * @LastEditTime: 2021-08-19 17:21:45
- * @LastEditor: 陈春凯
+ * @LastEditTime: 2021-10-09 09:44:43
+ * @LastEditor: cat
  */
 
 Function.prototype.myCall = function(context) {
